@@ -20,7 +20,7 @@ namespace CatMash.DAL
             using (var con = new SqlConnection(_connectionString))
             {
                 var data = await con.QueryAsync<CatData>(
-                    "select c.CatId, c.CatScore from cm.tCat c");
+                    "select c.CatId, c.CatScore from cm.tCat c order by c.CatScore desc");
                 return data;
             }
         }
