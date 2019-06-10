@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Scripts\000.Create-Schema-sp.sql" />
+    <None Remove="Scripts\001.install-tCat.sql" />
+    <None Remove="Scripts\002.install-sCatCreate.sql" />
+    <None Remove="Scripts\003.install-sCatUpdate.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\000.Create-Schema-sp.sql" />
+    <EmbeddedResource Include="Scripts\001.install-tCat.sql" />
+    <EmbeddedResource Include="Scripts\002.install-sCatCreate.sql" />
+    <EmbeddedResource Include="Scripts\003.install-sCatUpdate.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dbup" Version="4.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="2.2.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
