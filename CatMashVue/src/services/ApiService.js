@@ -18,3 +18,8 @@ Axios.defaults.baseURL = endpoint;
         const response = await getAsync(`${endpoint}/leaderboard`);
         return response.data;
     }
+
+    export async function GetCatsJSON() {
+        const response = await getAsync(`${endpoint}/catsJSON`);
+        return response.data;
+    }

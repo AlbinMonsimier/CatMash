@@ -1,6 +1,6 @@
-# catmash
+# catmashvue
 
-> CatMash
+> catmash
 
 ## Build Setup
 
