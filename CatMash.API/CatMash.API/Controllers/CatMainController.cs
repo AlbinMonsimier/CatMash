@@ -30,11 +30,10 @@ namespace CatMash.API.Controllers
         [HttpGet("catsJSON")]
         public async Task<CatJsonData> GetCatsJSON()
         {
-            using (StreamReader r = new StreamReader(@"C:\Users\albin\Documents\DEV\CatMash\CatMash.API\CatMash.API\Ressources\cats.json"))
+            using (StreamReader r = new StreamReader(@"Ressources\cats.json"))
             {
                 string json = r.ReadToEnd();
                 var a = JsonConvert.DeserializeObject<CatJsonData>(json);
-
                 return a;
             }
         }

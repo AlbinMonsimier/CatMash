@@ -27,8 +27,9 @@ namespace CatMash.API
                 builder =>
                 {
                     // domaine autorisé
-                    builder.WithOrigins("http://localhost:8080",
-                                        "");
+                    builder.AllowAnyOrigin();
+                    builder.AllowAnyHeader();
+                    builder.AllowAnyMethod();
                 });
             });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -44,6 +45,7 @@ namespace CatMash.API
                 app.UseDeveloperExceptionPage();
             }
             app.UseCors(MyAllowSpecificOrigins);
+            app.UseHttpsRedirection();
             app.UseMvc();
         }
     }

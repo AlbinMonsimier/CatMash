@@ -8,8 +8,7 @@ namespace CatMash.DAL
 {
     public class CatGateway
     {
-        private readonly string _connectionString = "Server=.\\SQLEXPRESS;Database=CatMash;Trusted_Connection=True;";
-
+        private readonly string _connectionString = "todoEnvVar";
 
         /// <summary>
         /// Retourne une liste de CatData qui contient les ID et Scores de tout les chats
@@ -20,7 +19,7 @@ namespace CatMash.DAL
             using (var con = new SqlConnection(_connectionString))
             {
                 var data = await con.QueryAsync<CatData>(
-                    "select c.CatId, c.CatScore from cm.tCat c order by c.CatScore desc");
+                    "select c.CatId, c.CatScore from dbo.tCat c order by c.CatScore desc");
                 return data;
             }
         }
@@ -35,7 +34,7 @@ namespace CatMash.DAL
             using (var con = new SqlConnection(_connectionString))
             {
                 await con.ExecuteAsync(
-                    "cm.sCatUpdate",
+                    "dbo.sCatUpdate",
                     new { CatId = catId, CatScore = 1 },
                     commandType: CommandType.StoredProcedure);
                 return Result.Success();

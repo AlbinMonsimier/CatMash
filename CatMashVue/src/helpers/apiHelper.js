@@ -20,7 +20,7 @@ export async function putAsync(url, data) {
       })
 }
 
-export async function getAsync(url) {
+export async function getAsync(url, ) {
   return axios.get(url)
       .then((response) => {
         return response

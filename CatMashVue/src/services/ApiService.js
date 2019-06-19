@@ -1,5 +1,5 @@
 import { getAsync, postAsync } from "../helpers/apiHelper";
-const endpoint = "http://localhost:5000/CatMain";
+const endpoint = "https://catmashapi20190618085606.azurewebsites.net/catMain";
 import Axios from 'axios';
 
 Axios.defaults.baseURL = endpoint;
